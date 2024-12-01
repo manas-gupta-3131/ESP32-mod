@@ -1,18 +1,35 @@
-#include <Arduino.h>
-
-// put function declarations here:
-int myFunction(int, int);
-
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+#include "BluetoothSerial.h"
+BluetoothSerial SerialBT;
+void setup(){
+  Serial.begin(115200);
+  SerialBT.begin("ESP32test"); //Bluetooth device name
+  Serial.println("The device started, now you can pair it with bluetooth!");
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop(){
+  if (SerialBT.available()){
+    Serial.write(SerialBT.read());
+  }
+  if (Serial.available()){
+    SerialBT.write(Serial.read());
+  }
+  delay(20);
 }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+//Wifi module 
+
+#include "WiFi.h"
+const char* ssid = "BUNZU";
+const char* password = "Manas431";
+
+void setup(){
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+  while (WiFi.status()!=WL_CONNECTED){
+    delay(1000);
+    Serial.println("Connecting to WiFi.."); 
+  }
+  Serial.println("Connected to the WiFi network");
+}
+void loop(){
 }
