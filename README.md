@@ -1,1 +1,1 @@
-# ESP32 NODE MCU 32s-mod
+# ESP32 Node MCU 32s-mod
