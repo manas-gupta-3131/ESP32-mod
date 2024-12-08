@@ -1,4 +1,2 @@
 # ESP32 Node MCU 32s-mod
-
-
-![ESP32 Node MCU 32s](ESP 32 pic.jgp)
+<img src="ESP 32 pic.jpg" alt="ESP32 hecker bish" />
